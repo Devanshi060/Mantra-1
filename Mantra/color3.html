@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            /* flex-direction: column; */
+            /* background: linear-gradient(45deg, #560cce, #a60c0c); */
+        }
+        .headline {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .results {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .result-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .result-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .result-text {
+            font-size: 20px;
+            color: rgb(63, 63, 63);
+        }
+        .back{
+            position: absolute;
+            top:1%;
+            left:1%;
+            margin-left: 10px;
+            height: 40px;
+            width:40px;
+            border:none;
+            font-weight: 900;
+            border-radius:50%;
+            background-color: rgb(87, 0, 137);
+            /* border-radius: ; */
+            color:white
+            
+        }
+        .main{
+            top:0;
+            background-color: rgb(218, 218, 218);
+            height:92%;
+            width:75%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image{
+            height: 50vh;
+            width: 50vh;
+            margin-right: 50px;
+            background-image: url('img/color3.jpg');
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <button class="back" onclick="goBack()">&lt;--</button>
+
+    <div class="main">
+        <div class="image"></div>
+    
+        <!-- <div class="headline">Your Choices</div> -->
+        <div class="results" id="results-container">
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        const choice1 = localStorage.getItem('choice1');
+        const choice2 = localStorage.getItem('choice2');
+
+        const choiceTexts = {
+            'apple': 'Tops: V-necks, wrap tops, tops with vertical details.\n Bottoms: Flared or wide-leg pants, A-line skirts.\n Dresses: Empire waist, A-line dresses.\n Outerwear: Single-breasted jackets, tailored coats that cinch at the waist.',
+
+            'rectangle': 'Tops: Ruffled or layered tops to add volume.\n Bottoms: High-waisted pants, flared or wide-leg pants.\n Dresses: Peplum dresses, belted dresses to create a waistline.\n Outerwear: Structured blazers, coats with belts or details at the waist.',
+
+            'pear': 'Tops: Bright-colored or patterned tops, boat necks, scoop necks \n Bottoms: Dark-colored, straight-leg or bootcut pants, A-line skirts.\n Dresses: A-line or fit-and-flare dresses.\n Outerwear: Structured jackets that end above the hips.',
+
+            'hourglass': 'Tops: Fitted tops that accentuate the waist. \n Bottoms: High-waisted skirts and pants to highlight the waist. \n Dresses: Wrap dresses, fit-and-flare dresses. \n Outerwear: Tailored jackets, belted coats.',
+
+            'oval': 'Tops: V-necks, tops that elongate the torso.\n Bottoms: Straight-leg or bootcut pants, skirts that fall just below the knee.\n Dresses: Empire waist, wrap dresses.\n Outerwear: Long, structured jackets, open-front cardigans.',
+
+            'summer': 'Cool and Soft: Light, cool, and muted colors with a blue undertone.', // 'img/option1.jpg', // Replace with the actual image path for Option 1
+            'autumn': 'Warm and Deep: Warm, rich, and earthy colors with a golden undertone.', //'img/option2.jpg', // Replace with the actual image path for Option 2
+            'winter': 'Cool and Deep: Cool, vibrant, and clear colors with a blue undertone.', //'img/option3.jpg', // Replace with the actual image path for Option 3
+            'spring': 'Warm and Bright: Soft, warm, and light colors with a clear undertone.' // 'img/option4.jpg'  // Replace with the actual image path for Option 4
+        };
+
+   
+        const resultsContainer = document.getElementById('results-container');
+
+        const resultText1 = document.createElement('div');
+        resultText1.className = 'result-text';
+        resultText1.innerText = choiceTexts[choice1];
+        resultsContainer.appendChild(resultText1);
+
+        // Display text for choice2
+        const resultText2 = document.createElement('div');
+        resultText2.className = 'result-text';
+        resultText2.innerText = choiceTexts[choice2];
+        resultsContainer.appendChild(resultText2);
+
+
+    </script>
+
+</body>
+
+</html>
